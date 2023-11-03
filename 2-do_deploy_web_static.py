@@ -1,15 +1,16 @@
 #!/usr/bin/python
-""" A Fabric script that distributes an archive to your web servers, using the function do_deploy. """
+"""
+A Fabric script that distributes an archive to your web servers, using the function do_deploy.
+"""
 
-from fabric.api import *
-from datetime import datetime
+from fabric.api import env, run, put
 from os.path import exists
 
 env.hosts = ['35.153.232.148', '54.234.35.137']
 # All remote commands must be executed on both web servers
 
 def do_deploy(archive_path):
-    """ Distributes an archive to web servers. """
+    """Distributes an archive to web servers."""
     if exists(archive_path) is False:
         return False  # Returns False if the file at archive_path doesn't exist
 
@@ -42,5 +43,5 @@ def do_deploy(archive_path):
         # (/data/web_static/releases/<archive filename without extension>)
 
         return True
-    except:
+    except BaseException:
         return False
