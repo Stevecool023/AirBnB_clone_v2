@@ -1,46 +1,38 @@
-#!/usr/bin/python3
-"""
-Fabric script to deploy tgz archive
-fab -f 2-do_deploy_web_static.py do_deploy:archive_path=filepath
-    -i private-key -u user
-"""
+#!/usr/bin/env python
+from datetime import datetime
+from fabric.api import env, run, put
+import os
 
-from os.path import exists
-from fabric.api import put, run, env
-
-env.hosts = ['35.153.232.148', '54.234.35.137']
-
+# env.hosts = ['<IP web-01>', '<IP web-02>']  # Replace with your server IPs
+# env.user = '<your_ssh_user>'  # Replace with your SSH username
 
 def do_deploy(archive_path):
-    """
-    copies archive file from local to my webservers
-    """
-
-    if not exists(archive_path):
+    if not os.path.exists(archive_path):
         return False
+
     try:
-        file_name = archive_path.split("/")[-1].split(".")[0]
-        put(archive_path, "/tmp/")
+        archive_name = os.path.basename(archive_path)
+        archive_no_extension = os.path.splitext(archive_name)[0]
 
-        run("mkdir -p /data/web_static/releases/{}".format(file_name))
+        # Upload the archive to the /tmp/ directory on the web server
+        put(archive_path, '/tmp/')
 
-        run("tar -xzf /tmp/{}.tgz -C /data/web_static/releases/{}/"
-            .format(file_name, file_name))
+        # Create the release directory
+        run('mkdir -p /data/web_static/releases/{}'.format(archive_no_extension))
 
-        run('rm -rf /tmp/{}.tgz'.format(file_name))
+        # Uncompress the archive to the release directory
+        run('tar -xzf /tmp/{} -C /data/web_static/releases/{}'.format(archive_name, archive_no_extension))
 
-        run(('mv /data/web_static/releases/{}/web_static/* ' +
-            '/data/web_static/releases/{}/')
-            .format(file_name, file_name))
+        # Delete the archive from the web server
+        run('rm /tmp/{}'.format(archive_name))
 
-        run('rm -rf /data/web_static/releases/{}/web_static'
-            .format(file_name))
+        # Delete the current symbolic link
+        run('rm /data/web_static/current')
 
-        run('rm -rf /data/web_static/current')
+        # Create a new symbolic link to the new version
+        run('ln -s /data/web_static/releases/{} /data/web_static/current'.format(archive_no_extension))
 
-        run(('ln -s /data/web_static/releases/{}/' +
-            ' /data/web_static/current')
-            .format(file_name))
         return True
-    except Exception:
+
+    except Exception as e:
         return False
