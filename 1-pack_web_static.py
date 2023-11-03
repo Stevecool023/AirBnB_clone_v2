@@ -4,7 +4,7 @@ Fabric script that generates a .tgz archive from the contents of the web_static 
 of an AirBnB Clone repository using the function do_pack.
 """
 
-from fabric import task
+from invoke import task
 from datetime import datetime
 import os
 
