@@ -7,7 +7,7 @@ from os import path
 
 
 env.hosts = ['35.153.232.14'8, '54.234.35.137']
-env.user = 'scool'
+env.user = 'ubuntu'
 env.key_filename = '~/.ssh/id_rsa'
 
 
