@@ -4,13 +4,9 @@ With Fabric, creates a tgz archive
 from web_static content folder
 """
 
-from fabric.api import env, local, put, run
+from fabric.api import local, put, run, sudo
 from os.path import exists, isdir
 from datetime import datetime
-
-env.hosts = ['35.153.232.148', '54.234.35.137']  # Replace with your server IPs
-# env.user = 'ubuntu'  Replace with your SSH username
-# env.key_filename = '~/.ssh/id_rsa' Replace with your SSH private key file path
 
 def do_pack():
     """Creates a tgz archive using Fabric"""
@@ -34,13 +30,13 @@ def do_deploy(archive_path):
         no_extension = filename.split(".")[0]
         path = "/data/web_static/releases/"
         put(archive_path, '/tmp/')
-        run('sudo mkdir -p {}{}/'.format(path, no_extension))
-        run('sudo tar -xzf /tmp/{} -C {}{}/'.format(filename, path, no_extension))
-        run('sudo rm /tmp/{}'.format(filename))
-        run('sudo mv {0}{1}/web_static/* {0}{1}/'.format(path, no_extension))
-        run('sudo rm -rf {}{}/web_static'.format(path, no_extension))
-        run('sudo rm -rf /data/web_static/current')
-        run('sudo ln -s {}{}/ /data/web_static/current'.format(path, no_extension))
+        sudo('mkdir -p {}{}/'.format(path, no_extension))
+        sudo('tar -xzf /tmp/{} -C {}{}/'.format(filename, path, no_extension))
+        sudo('rm /tmp/{}'.format(filename))
+        sudo('mv {0}{1}/web_static/* {0}{1}/'.format(path, no_extension))
+        sudo('rm -rf {}{}/web_static'.format(path, no_extension))
+        sudo('rm -rf /data/web_static/current')
+        sudo('ln -s {}{}/ /data/web_static/current'.format(path, no_extension))
         return True
     except BaseException:
         return False
