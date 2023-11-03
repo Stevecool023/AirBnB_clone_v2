@@ -1,9 +1,11 @@
-from fabric import task
+#!/usr/bin/env python3
+
+from fabric.api import task, local
 from datetime import datetime
 import os
 
 @task
-def do_pack(c):
+def do_pack():
     """
     Generates a .tgz archive from the contents of the web_static folder.
     """
@@ -18,7 +20,7 @@ def do_pack(c):
         filename = "versions/web_static_{}.tgz".format(date)
 
         # Create the .tgz archive using tar
-        c.local("tar -cvzf {} web_static".format(filename))
+        local("tar -cvzf {} web_static".format(filename))
 
         # Return the archive path if successful
         if os.path.exists(filename):
@@ -28,4 +30,3 @@ def do_pack(c):
 
     except Exception as e:
         return None
-
