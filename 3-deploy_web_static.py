@@ -7,9 +7,9 @@ from web_static content folder
 from fabric.api import env, local, put, run
 from datetime import datetime
 from os.path import exists, isdir
-env.hosts = ['34.236.171.16', '3.237.45.190']
-env.user = 'ubuntu'
-env.key_filename = '~/.ssh/id_rsa'
+env.hosts = ['35.153.232.148', '54.234.35.137']
+# env.user = 'ubuntu'
+# env.key_filename = '~/.ssh/id_rsa'
 
 
 def do_pack():
