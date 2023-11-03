@@ -8,7 +8,7 @@ from fabric.api import *
 from datetime import datetime
 from os.path import exists
 
-# env.hosts = ['<web_01>', '<web_02>]  Replace with your server IPs
+ env.hosts = ['35.153.232.148', '54.234.35.137']
 # env.user = '<your_ssh_user>'  Replace with your SSH username
 
 def do_deploy(archive_path):
