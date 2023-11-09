@@ -1,11 +1,14 @@
-/* Inside styles.css */
+/* Reset some default styles */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
 
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f8f8;
     color: #333;
-    margin: 0;
-    padding: 0;
+    line-height: 1.6;
 }
 
 header {
@@ -24,4 +27,82 @@ h1, h2, h3 {
     margin: 0 auto;
 }
 
-/* Add more styles as needed */
+/* Navigation */
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Search and Cart */
+.search-cart {
+    margin-top: 10px;
+    text-align: right;
+}
+
+/* Blog */
+.blog {
+    padding: 20px;
+}
+
+.blog-post {
+    margin-bottom: 30px;
+}
+
+.blog-post img {
+    max-width: 100%;
+    height: auto;
+}
+
+.read-more-link {
+    display: block;
+    margin-top: 10px;
+    color: #4CAF50;
+}
+
+/* Equipment */
+.farm-equipment {
+    padding: 20px;
+}
+
+.equipment {
+    margin-bottom: 30px;
+}
+
+.equipment img {
+    max-width: 100%;
+    height: auto;
+}
+
+.cart-link {
+    display: block;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
