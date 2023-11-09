@@ -1,0 +1,27 @@
+/* Inside styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #4CAF50;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Add more styles as needed */
