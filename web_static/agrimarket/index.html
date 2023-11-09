@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!-- Inside index.html, products.html, equipment.html, and blog.html -->
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,9 +17,10 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Equipment</a></li>
-        <li><a href="#">Products</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/equipment">Equipment</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/blog">Blog</a></li>
       </ul>
     </nav>
     <div class="search-cart">
@@ -59,9 +63,10 @@
     </div>
     <div class="footer-links">
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Equipment</a></li>
-        <li><a href="#">Products</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/equipment">Equipment</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/blog">Blog</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </div>
