@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<!-- Inside index.html, products.html, equipment.html, and blog.html -->
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/main.css"> <!-- Add your main stylesheet link here -->
-  <link rel="icon" href="images/icon.png" type="image/png">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/agrimoji.jpg') }}" type="image/png">
   <title>Agrimarket</title>
 </head>
 <body>
@@ -21,6 +19,7 @@
         <li><a href="/equipment">Equipment</a></li>
         <li><a href="/products">Products</a></li>
         <li><a href="/blog">Blog</a></li>
+        <li><a href="/add_product">Add_Product</a></li>
       </ul>
     </nav>
     <div class="search-cart">
@@ -32,11 +31,18 @@
   <div class="container">
     <section class="featured-products">
       <h2>Featured Products</h2>
-      <!-- Example Product Card (you can repeat this for multiple products) -->
+      <!-- Example Product Card (replace with actual image filenames) -->
       <article class="product-card">
-        <img src="images/product1.jpg" alt="Product 1">
+        <img src="{{ url_for('static', filename='images/beansspecies.jpg') }}" alt="Beans Species">
         <h3>Product 1</h3>
         <p>Description of Product 1.</p>
+        <button>Add to Cart</button>
+      </article>
+
+      <article class="product-card">
+        <img src="{{ url_for('static', filename='images/cerialistic.jpg') }}" alt="Cerialistic">
+        <h3>Product 2</h3>
+        <p>Description of Product 2.</p>
         <button>Add to Cart</button>
       </article>
       <!-- Repeat for other products -->
@@ -44,9 +50,9 @@
 
     <section class="featured-equipment">
       <h2>Featured Equipment</h2>
-      <!-- Example Equipment Card (you can repeat this for multiple equipment) -->
+      <!-- Example Equipment Card (replace with actual image filenames) -->
       <article class="equipment-card">
-        <img src="images/equipment1.jpg" alt="Equipment 1">
+        <img src="{{ url_for('static', filename='images/equipment1.jpg') }}" alt="Equipment 1">
         <h3>Equipment 1</h3>
         <p>Description of Equipment 1.</p>
         <button>Add to Cart</button>
