@@ -11,7 +11,7 @@
 <body>
   <header>
     <div class="logo">
-      <h1>Agrimarket</h1>
+      <img src="{{ url_for('static', filename='images/agrimoji.jpg') }}" alt="Agrimarket Logo">
     </div>
     <nav>
       <ul>
@@ -30,34 +30,28 @@
 
   <div class="container">
     <section class="featured-products">
-      <h2>Featured Products</h2>
-      <!-- Example Product Card (replace with actual image filenames) -->
+      <h2>Discover the Future of Agriculture</h2>
+      <p class="branding-text">Where convenience meets quality.</p>
+      <p class="branding-text colored">Welcome to the Agricultural Marketplace - Your One-Stop Source for Quality Products and Equipment.</p>
+      <p class="branding-text">Explore a world of agriculture, find everything you need, and take your farming to the next level.</p>
+      <p class="branding-text colored">Your number 1 home for agri-solutions.</p>
+      <p class="branding-text">Your gateway to a thriving farming experience.</p>
+
+      <!-- Example Product Cards (replace with actual image filenames and descriptions) -->
       <article class="product-card">
         <img src="{{ url_for('static', filename='images/beansspecies.jpg') }}" alt="Beans Species">
-        <h3>Product 1</h3>
-        <p>Description of Product 1.</p>
+        <h3>Beans Species</h3>
+        <p>Discover the finest beans species for your farm.</p>
         <button>Add to Cart</button>
       </article>
 
       <article class="product-card">
         <img src="{{ url_for('static', filename='images/cerialistic.jpg') }}" alt="Cerialistic">
-        <h3>Product 2</h3>
-        <p>Description of Product 2.</p>
+        <h3>Cerialistic</h3>
+        <p>Explore the latest cerialistic products in the market.</p>
         <button>Add to Cart</button>
       </article>
       <!-- Repeat for other products -->
-    </section>
-
-    <section class="featured-equipment">
-      <h2>Featured Equipment</h2>
-      <!-- Example Equipment Card (replace with actual image filenames) -->
-      <article class="equipment-card">
-        <img src="{{ url_for('static', filename='images/equipment1.jpg') }}" alt="Equipment 1">
-        <h3>Equipment 1</h3>
-        <p>Description of Equipment 1.</p>
-        <button>Add to Cart</button>
-      </article>
-      <!-- Repeat for other equipment -->
     </section>
   </div>
 

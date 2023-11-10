@@ -18,7 +18,17 @@ header {
     text-align: center;
 }
 
-h1, h2, h3 {
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.branding-text {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.colored {
     color: #4CAF50;
 }
 
@@ -53,49 +63,19 @@ nav a {
     text-align: right;
 }
 
-/* Blog */
-.blog {
-    padding: 20px;
-}
-
-.blog-post {
-    margin-bottom: 30px;
-}
-
-.blog-post img {
-    max-width: 100%;
-    height: auto;
-}
-
-.read-more-link {
-    display: block;
-    margin-top: 10px;
-    color: #4CAF50;
-}
-
-/* Equipment */
-.farm-equipment {
-    padding: 20px;
-}
-
-.equipment {
-    margin-bottom: 30px;
-}
-
-.equipment img {
-    max-width: 100%;
-    height: auto;
-}
-
-.cart-link {
-    display: block;
-    margin-top: 10px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 8px;
+/* Example Product Card */
+.product-card {
+    display: inline-block;
+    width: 23%; /* Adjust as needed */
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
     text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Footer */
